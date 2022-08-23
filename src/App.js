@@ -3,6 +3,10 @@ import { TextField, FormControl } from "@mui/material";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 
+const fieldStyle = {
+  color: "white",
+};
+
 function App() {
   return (
     <div className="App">
@@ -10,7 +14,12 @@ function App() {
       <header className="App-header">
         <img src="/images/mylogo.png" className="App-logo" alt="logo" />
         <FormControl>
-          <TextField id="student-name-form" variant="outlined"></TextField>
+          <TextField
+            id="student-name-form"
+            variant="outlined"
+            color="secondary"
+            sx={fieldStyle}
+          ></TextField>
           <p>Enter student names and click "GENERATE"</p>
         </FormControl>
         <a
