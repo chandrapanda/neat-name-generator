@@ -26,13 +26,13 @@ const Navbar = () => {
           {/* PAGE NAME. Left Side. */}
           <Grid item>
             <Link
-              variant="h1"
+              variant="h2"
               noWrap
               underline="none"
               color="#ffffff"
               href="/"
               sx={{
-                mr: 2,
+                mr: 10,
                 display: { xs: "flex", sm: "flex", md: "flex", lg: "flex" },
               }}
             >

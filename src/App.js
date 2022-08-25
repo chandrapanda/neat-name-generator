@@ -1,11 +1,11 @@
 import "./App.css";
-import { TextField, FormControl } from "@mui/material";
+import { TextField, FormControl, Button } from "@mui/material";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
 
 const fieldStyle = {
-  color: "white",
+  background: "white",
 };
 
 function App() {
@@ -18,20 +18,14 @@ function App() {
           <TextField
             id="student-name-form"
             variant="outlined"
-            color="secondary"
+            label="Write a name"
+            color="primary"
             sx={fieldStyle}
           ></TextField>
-          <p>Enter student names and click "GENERATE"</p>
+          <p>Enter a student's name and click "GENERATE"</p>
+          <Button variant="contained"> Generate </Button>
         </FormControl>
         <StudentList />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Generate
-        </a>
       </header>
       <Footer />
     </div>
