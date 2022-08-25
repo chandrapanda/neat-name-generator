@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Right Side. */}
           <Grid container sx={{ justifyContent: "end" }}></Grid>
 
-          {/* MOBILE MENU*/}
+          {/* TODO: MOBILE MENU*/}
           {/* Hamburger menu displays when screen is XS or S */}
           {/* <Box>
             <Tooltip title="Open pages">

@@ -1,8 +1,44 @@
 import "./App.css";
 import { TextField, FormControl, Button } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: '"Comfortaa", Arial, sans-serif',
+    h1: {
+      fontSize: "2.5rem",
+    },
+    h2: {
+      fontSize: "1.25em",
+    },
+    h3: {
+      fontSize: "1em",
+    },
+    h6: {
+      fontSize: "1em",
+    },
+    p: {
+      fontSize: "1em",
+    },
+  },
+  // palette: {
+  //   primary: {
+  //     light: "#ECF6FC", // background light blue
+  //     main: "#105F9A", // theme blue
+  //     dark: "#168BE2", // bright blue
+  //     contrastText: "#FFFFFF",
+  //   },
+  //   secondary: {
+  //     light: "#597992", // disabled blue
+  //     main: "#062740", // dark blue
+  //     accent: "#F5E410", // yellow
+  //     contrastText: "#062740", // dark blue, text color
+  //   },
+  // },
+});
 
 const fieldStyle = {
   background: "white",
@@ -10,25 +46,33 @@ const fieldStyle = {
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <header className="App-header">
-        <img src="/images/mylogo.png" className="App-logo" alt="logo" />
-        <FormControl>
-          <TextField
-            id="student-name-form"
-            variant="outlined"
-            label="Write a name"
-            color="primary"
-            sx={fieldStyle}
-          ></TextField>
-          <p>Enter a student's name and click "GENERATE"</p>
-          <Button variant="contained"> Generate </Button>
-        </FormControl>
-        <StudentList />
-      </header>
-      <Footer />
-    </div>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Navbar />
+        <header className="App-header">
+          <img
+            src="/images/mylogo.png"
+            className="App-logo"
+            alt="logo"
+            height="20px"
+            padding="10px"
+          />
+          <FormControl>
+            <TextField
+              id="student-name-form"
+              variant="outlined"
+              label="Write a name"
+              color="primary"
+              sx={fieldStyle}
+            ></TextField>
+            <p>Enter a student's name and click "GENERATE"</p>
+            <Button variant="contained"> Generate </Button>
+          </FormControl>
+          <StudentList />
+        </header>
+        <Footer />
+      </div>
+    </ThemeProvider>
   );
 }
 
