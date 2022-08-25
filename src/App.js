@@ -2,6 +2,7 @@ import "./App.css";
 import { TextField, FormControl } from "@mui/material";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
+import StudentList from "./components/StudentList";
 
 const fieldStyle = {
   color: "white",
@@ -22,6 +23,7 @@ function App() {
           ></TextField>
           <p>Enter student names and click "GENERATE"</p>
         </FormControl>
+        <StudentList />
         <a
           className="App-link"
           href="https://reactjs.org"

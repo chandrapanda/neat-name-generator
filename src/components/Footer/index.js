@@ -14,10 +14,10 @@ import {
 const footerStyle = {
   container: {
     backgroundColor: "#131C47",
+    
   },
   listText: {
     color: "#ffffff",
-    textDecoration: "none",
     fontSize: "1em",
     fontFamily: "Helvetica, sans-serif",
     lineHeight: "1em",
