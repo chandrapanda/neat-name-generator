@@ -1,5 +1,5 @@
 import "./App.css";
-import { TextField, FormControl, Button } from "@mui/material";
+
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
@@ -43,10 +43,6 @@ const theme = createTheme({
   // },
 });
 
-const fieldStyle = {
-  background: "white",
-};
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
@@ -60,17 +56,6 @@ function App() {
             height="20px"
             padding="10px"
           />
-          <FormControl>
-            <TextField
-              id="student-name-form"
-              variant="outlined"
-              label="Write a name"
-              color="primary"
-              sx={fieldStyle}
-            ></TextField>
-            <p>Enter a student's name and click "GENERATE"</p>
-            <Button variant="contained"> Generate </Button>
-          </FormControl>
           <StudentList />
         </header>
         <Footer />
