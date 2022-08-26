@@ -10,6 +10,7 @@ import {
   TextField,
   FormControl,
   Button,
+  Chip,
 } from "@mui/material";
 
 const fieldStyle = {
@@ -71,6 +72,8 @@ const StudentList = () => {
         >
           Generate a random name
         </Button>
+
+        <Chip variant="outlined" color="primary" />
       </FormControl>
 
       <Grid container spacing={2}>
