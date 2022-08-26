@@ -26,7 +26,7 @@ const Navbar = () => {
           {/* PAGE NAME. Left Side. */}
           <Grid item>
             <Link
-              variant="h2"
+              variant="h1"
               noWrap
               underline="none"
               color="#ffffff"

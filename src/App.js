@@ -9,19 +9,22 @@ const theme = createTheme({
   typography: {
     fontFamily: '"Comfortaa", Arial, sans-serif',
     h1: {
-      fontSize: "2.5rem",
+      fontSize: "3.5rem",
+      fontWeight: "bolder",
     },
     h2: {
-      fontSize: "1.25em",
+      fontSize: "1.5em",
     },
     h3: {
       fontSize: "1em",
     },
     h6: {
       fontSize: "1em",
+      textAlign: "center",
     },
     p: {
       fontSize: "1em",
+      textAlign: "center",
     },
   },
   // palette: {

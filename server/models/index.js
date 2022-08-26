@@ -1,1 +1,1 @@
-const StudentName = require()
+const StudentName = require();
