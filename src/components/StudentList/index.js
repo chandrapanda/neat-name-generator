@@ -72,8 +72,8 @@ const StudentList = () => {
         >
           Generate a random name
         </Button>
-
-        <Chip variant="outlined" color="primary" />
+        <Chip variant="outlined" sx={{ mt: 4, mb: 2 }} color="primary"></Chip>{" "}
+      
       </FormControl>
 
       <Grid container spacing={2}>
