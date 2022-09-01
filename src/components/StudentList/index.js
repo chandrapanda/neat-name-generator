@@ -14,7 +14,7 @@ import {
 
 //Styling
 const fieldStyle = {
-  background: "white",
+  backgroundColor: "white",
 };
 
 //Declare export here
@@ -28,7 +28,7 @@ const StudentList = () => {
   ]);
   //set local storage items as student names
   useEffect(() => {
-    localStorage.setItem("studentNames", studentNames);
+    localStorage.setItem("studentNames", JSON.stringify(studentNames));
   });
   console.log("Here is the first test", studentNames);
 
@@ -46,39 +46,62 @@ const StudentList = () => {
   // ];
 
   //initialize random student variable
-  let randomStudent;
+  const [randomStudent, setRandomStudent] = useState();
 
   // TODO: Create function to map over student names after seeds are ready
+
+  //TODO: Make sure each student can only be called on once per iteration
+
+  const generateRandomName = () => {
+    setRandomStudent(
+      studentNames[Math.floor(Math.random() * studentNames.length)]
+    );
+  };
+  //Generates a random name from given array
   const handleGenerate = () => {
+    generateRandomName();
     console.log("The generate random button is working!");
-    randomStudent =
+    let newRandomStudent =
       studentNames[Math.floor(Math.random() * studentNames.length)];
+    console.log("GENERATE BUTTON " + newRandomStudent);
+    return newRandomStudent;
   };
 
+  console.log("Here is the random student name variable: " + randomStudent);
+
   const [formState, setFormState] = useState({
-    studentName: "",
+    newStudentName: "",
   });
 
   //When user enters a name into the text field, declare this as target for form state
   const handleFormChange = (event) => {
-    const { name, value } = event.target;
+    event.persist();
 
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
+    try {
+      setFormState({
+        ...formState,
+        newStudentName: event.target.value,
+      });
+    } catch (err) {
+      console.log(`Error: ${err}`);
+    }
   };
 
   //Add entered name to array
-  const handleAddName = async (event) => {
+  const handleAddName = (newStudentName) => {
+    //Check formState
     console.log(formState);
 
     console.log("The add name button is working!");
 
-    setStudentNames((studentNames) => studentNames.concat());
+    try {
+      setStudentNames((studentNames) => studentNames.concat(newStudentName));
+    } catch (err) {
+      console.log(`Error: ${err}`);
+    }
   };
 
-  console.log(studentNames);
+  console.log("Here are the student names: " + studentNames);
 
   return (
     <Box>
@@ -89,6 +112,7 @@ const StudentList = () => {
           variant="outlined"
           label="Write a name"
           color="primary"
+          value={formState.newStudentName}
           onChange={handleFormChange}
           sx={fieldStyle}
         ></TextField>
@@ -112,7 +136,7 @@ const StudentList = () => {
         <Chip
           variant="outlined"
           label={randomStudent}
-          sx={(fieldStyle, { mt: 4, mb: 2 })}
+          sx={{ backgroundColor: "white", mt: 4, mb: 2 }}
           // color="primary"
         />
       </FormControl>
