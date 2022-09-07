@@ -36,7 +36,7 @@ const Navbar = () => {
                 display: { xs: "flex", sm: "flex", md: "flex", lg: "flex" },
               }}
             >
-              Neat Name Generator
+              Neat-o Name Generator
             </Link>
             <h2>Call on every student.</h2>
           </Grid>

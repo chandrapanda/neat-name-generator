@@ -31,7 +31,7 @@ const Footer = () => {
         <Grid item xs={12} sm={12} md={6} lg={6}>
           <Box>
             <Typography variant="h2" color="primary.contrastText">
-              Neat Name Generator
+              Neat-o Name Generator
             </Typography>
             <Typography variant="p" color="primary.contrastText">
               Use this app to call on students at random in your class! This
