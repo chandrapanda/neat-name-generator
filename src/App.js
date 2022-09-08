@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
-import Table from "./components/Table";
+// import Table from "./components/Table";
 
 const theme = createTheme({
   typography: {
@@ -28,20 +28,6 @@ const theme = createTheme({
       textAlign: "center",
     },
   },
-  // palette: {
-  //   primary: {
-  //     light: "#ECF6FC", // background light blue
-  //     main: "#105F9A", // theme blue
-  //     dark: "#168BE2", // bright blue
-  //     contrastText: "#FFFFFF",
-  //   },
-  //   secondary: {
-  //     light: "#597992", // disabled blue
-  //     main: "#062740", // dark blue
-  //     accent: "#F5E410", // yellow
-  //     contrastText: "#062740", // dark blue, text color
-  //   },
-  // },
 });
 
 function App() {
@@ -58,9 +44,7 @@ function App() {
             padding="10px"
           />
           <StudentList />
-          <div className="container">
-            <Table />
-          </div>
+          <div className="container">{/* <Table /> */}</div>
         </header>
         <Footer />
       </div>

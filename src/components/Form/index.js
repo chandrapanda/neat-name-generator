@@ -1,9 +1,15 @@
-import React, { Component } from "react";
+// import React from "react";
+// import { useState } from "react";
 
-class Form extends Component {
-  initialState = {
-    studentName: "",
-  };
-
-  state = this.initialState;
-}
+// export default function AddStudent({ handleAddStudent }) {
+//   const [formState, setFormState] = useState({
+//     name: "",
+//   });
+//   const handleFormChange = (event) => {
+//     let { name, value } = event.target;
+//     setFormState({
+//       ...formState,
+//       [name]: value,
+//     });
+//   };
+// }

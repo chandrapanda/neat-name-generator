@@ -12,7 +12,6 @@ import {
   Chip,
 } from "@mui/material";
 
-
 //Styling
 const fieldStyle = {
   backgroundColor: "white",
@@ -22,21 +21,33 @@ const fieldStyle = {
 const StudentList = () => {
   //Initialize student list as an empty array of objects
   const [studentNames, setStudentNames] = useState([
-    // { id: "", studentName: "" },
-    // { id: "1", studentName: "Leah" },
+    "Mary Smith",
+    "Joaquim Tochtermann",
+    "Ahmed Mohammed",
+    "Jules Reynolds",
+    "Tuan Hong",
+    "Bob Ray",
+    "Liam Neeson",
+    "Jose Gallo",
+    "Nicole Herman",
+    "Larry Smith",
+    "Dora Jones",
+    "Ahmed Mohamed",
+    "Tuan Hong",
+    "Sandra Cuervo",
   ]);
 
   //Set local storage items as student names
-  // useEffect(() => {
-  //   const studentNames = JSON.parse(localStorage.getItem("studentNames"));
-  //   if (studentNames) {
-  //     setStudentNames(studentNames);
-  //   } else {
-  //     return "There are no student names yet.";
-  //   }
-  //   localStorage.setItem("studentNames", JSON.stringify(studentNames));
-  // }, [studentNames]);
-  // console.log("Here is the first test of student name array ", studentNames);
+  useEffect(() => {
+    const studentNames = JSON.parse(localStorage.getItem("studentNames"));
+    if (studentNames) {
+      setStudentNames(studentNames);
+    } else {
+      return "There are no student names yet.";
+    }
+    localStorage.setItem(studentNames, JSON.stringify(studentNames));
+  }, [studentNames]);
+  console.log("Here is the first test of student name array ", studentNames);
 
   //Initialize Add Student form variable
   const [formState, setFormState] = useState({
@@ -53,21 +64,21 @@ const StudentList = () => {
       ...formState,
       [name]: value,
     });
-    // handleAddName();
-    // try {
-    //   setFormState((event) => ({
-    //     ...formState,
-    //     newStudentName: event.target.value,
-    //   }));
-    // } catch (err) {
-    //   console.log(`Error: ${err}`);
-    // }
+    handleAddName();
+    try {
+      setFormState((event) => ({
+        ...formState,
+        newStudentName: event.target.value,
+      }));
+    } catch (err) {
+      console.log(`Error: ${err}`);
+    }
   };
 
   //Add entered name to array
   const handleAddName = async (event) => {
     console.log("handleAddName is running");
-    // event.preventDefault();
+    event.preventDefault();
     //Check formState
     console.log("FormState = " + formState);
     const name = event.target.name;
@@ -97,20 +108,7 @@ const StudentList = () => {
 
   //dummy list for student names for testing
   // let studentNames = [
-  //   "Mary Smith",
-  //   "Joaquim Tochtermann",
-  //   "Ahmed Mohammed",
-  //   "Jules Reynolds",
-  //   "Tuan Hong",
-  //   "Bob Ray",
-  //   "Liam Neeson",
-  //   "Jose Gallo",
-  //   "Nicole Herman",
-  // "Larry Smith",
-  // "Dora Jones",
-  // "Ahmed Mohamed",
-  // "Tuan Hong",
-  // "Sandra Cuervo",
+
   // ];
 
   //Initialize random student variable
@@ -156,6 +154,7 @@ const StudentList = () => {
         <Button
           id="add-name-button"
           variant="contained"
+          type="submit"
           sx={{ mt: 4, mb: 2 }}
           onClick={() => handleAddName()}
         >
@@ -165,6 +164,7 @@ const StudentList = () => {
         <Button
           id="generate-button"
           variant="contained"
+          type="submit"
           onClick={() => handleGenerate()}
         >
           Generate a random name
