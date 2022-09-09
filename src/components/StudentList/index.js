@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
+import NameForm from "../Forms/index";
 import {
   Box,
   Grid,
@@ -10,6 +11,7 @@ import {
   FormControl,
   Button,
   Chip,
+  Modal,
 } from "@mui/material";
 
 //Styling
@@ -19,6 +21,11 @@ const fieldStyle = {
 
 //Declare export here
 const StudentList = () => {
+  // Add Student Modal
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   //Initialize student list as an empty array of objects
   const [studentNames, setStudentNames] = useState([
     "Mary Smith",
@@ -32,21 +39,19 @@ const StudentList = () => {
     "Nicole Herman",
     "Larry Smith",
     "Dora Jones",
-    "Ahmed Mohamed",
-    "Tuan Hong",
     "Sandra Cuervo",
   ]);
 
   //Set local storage items as student names
-  useEffect(() => {
-    const studentNames = JSON.parse(localStorage.getItem("studentNames"));
-    if (studentNames) {
-      setStudentNames(studentNames);
-    } else {
-      return "There are no student names yet.";
-    }
-    localStorage.setItem(studentNames, JSON.stringify(studentNames));
-  }, [studentNames]);
+  // useEffect(() => {
+  //   const studentNames = JSON.parse(localStorage.getItem("studentNames"));
+  //   if (studentNames) {
+  //     setStudentNames(studentNames);
+  //   } else {
+  //     return "There are no student names yet.";
+  //   }
+  //   localStorage.setItem(studentNames, JSON.stringify(studentNames));
+  // }, [studentNames]);
   console.log("Here is the first test of student name array ", studentNames);
 
   //Initialize Add Student form variable
@@ -58,13 +63,13 @@ const StudentList = () => {
 
   //When user enters a name into the text field, declare this as target for form state
   const handleFormChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
     console.log("handleFormChange is running");
     setFormState({
       ...formState,
       [name]: value,
     });
-    handleAddName();
+    // handleAddName();
     try {
       setFormState((event) => ({
         ...formState,
@@ -79,10 +84,14 @@ const StudentList = () => {
   const handleAddName = async (event) => {
     console.log("handleAddName is running");
     event.preventDefault();
+
     //Check formState
     console.log("FormState = " + formState);
+
     const name = event.target.name;
     const value = event.target.value;
+
+    //Check name and value
     console.log("handleFormChange: " + name, value);
     try {
       setFormState({
@@ -105,11 +114,6 @@ const StudentList = () => {
   console.log(
     "Here are the student names by the end of the code: " + studentNames
   );
-
-  //dummy list for student names for testing
-  // let studentNames = [
-
-  // ];
 
   //Initialize random student variable
   const [randomStudent, setRandomStudent] = useState();
@@ -137,6 +141,22 @@ const StudentList = () => {
 
   return (
     <Box>
+      {/* Add Student Name Modal */}
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box>
+          <Typography id="modal-modal-title" variant="h1" sx={{ mb: 4 }}>
+            Add Season
+          </Typography>
+
+          {/* Add Season Form */}
+          <NameForm handleClose={handleClose} />
+        </Box>
+      </Modal>
       <FormControl>
         <p>Enter a student's name and click "ADD NAME TO LIST".</p>
         <TextField
