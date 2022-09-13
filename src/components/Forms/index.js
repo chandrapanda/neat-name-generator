@@ -22,7 +22,7 @@ class NameForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
+          Student Name:
           <input
             type="text"
             value={this.state.value}

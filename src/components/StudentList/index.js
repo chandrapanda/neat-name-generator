@@ -83,7 +83,7 @@ const StudentList = () => {
   //Add entered name to array
   const handleAddName = async (event) => {
     console.log("handleAddName is running");
-    event.preventDefault();
+    // event.preventDefault();
 
     //Check formState
     console.log("FormState = " + formState);
@@ -116,7 +116,7 @@ const StudentList = () => {
   );
 
   //Initialize random student variable
-  const [randomStudent, setRandomStudent] = useState();
+  const [randomStudent, setRandomStudent] = useState("CLICK ABOVE TO GENERATE");
 
   // TODO: Create function to map over student names after seeds are ready (?? DO I WANT A BACKEND SERVER??)
 
@@ -173,6 +173,7 @@ const StudentList = () => {
 
         <Button
           id="add-name-button"
+          size="large"
           variant="contained"
           type="submit"
           sx={{ mt: 4, mb: 2 }}
@@ -183,6 +184,7 @@ const StudentList = () => {
         <p>To select a random name, click "GENERATE A RANDOM NAME".</p>
         <Button
           id="generate-button"
+          size="large"
           variant="contained"
           type="submit"
           onClick={() => handleGenerate()}
@@ -191,9 +193,15 @@ const StudentList = () => {
         </Button>
         <Chip
           variant="outlined"
-          label={randomStudent}
-          sx={{ backgroundColor: "white", mt: 4, mb: 2 }}
-          // color="primary"
+          label={`Current random student: ${randomStudent}`}
+          sx={{
+            backgroundColor: "white",
+            fontSize: "18px",
+            width: "fit-content",
+            alignSelf: "center",
+            mt: 4,
+            mb: 2,
+          }}
         />
       </FormControl>
       <Grid container spacing={2}>
