@@ -30,8 +30,7 @@ Chandra Holt is the sole contributor to this project at this time.
 
 ## Screenshots
 
-![Screenshot1](images/name-generator-2.png)
-![Screenshot2](images/name-generator-ss.png)
+![Screenshot1](images/name-generator-responsive.png)
 
 ### GitHub
 
