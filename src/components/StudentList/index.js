@@ -17,6 +17,10 @@ import {
 //Styling
 const fieldStyle = {
   backgroundColor: "white",
+  width: "500px",
+  alignSelf: "center",
+  mt: 4,
+  mb: 2,
 };
 
 //Declare export here
@@ -170,13 +174,12 @@ const StudentList = () => {
           sx={fieldStyle}
           InputLabelProps={{ shrink: true }}
         ></TextField>
-
         <Button
           id="add-name-button"
           size="large"
           variant="contained"
           type="submit"
-          sx={{ mt: 4, mb: 2 }}
+          sx={{ mt: 4, mb: 2, width: "fit-content", alignSelf: "center" }}
           onClick={() => handleAddName()}
         >
           Add name to list
@@ -187,11 +190,12 @@ const StudentList = () => {
           size="large"
           variant="contained"
           type="submit"
+          sx={{ width: "fit-content", alignSelf: "center" }}
           onClick={() => handleGenerate()}
         >
           Generate a random name
         </Button>
-        <Chip
+        {/* <Chip
           variant="outlined"
           label={`Current random student: ${randomStudent}`}
           sx={{
@@ -202,7 +206,16 @@ const StudentList = () => {
             mt: 4,
             mb: 2,
           }}
-        />
+        /> */}
+        <TextField
+          id="random-name"
+          name="randomName"
+          variant="outlined"
+          color="primary"
+          value={randomStudent}
+          sx={fieldStyle}
+          InputLabelProps={{ shrink: true }}
+        ></TextField>
       </FormControl>
       <Grid container spacing={2}>
         <Grid item xs={12} md={6}>
