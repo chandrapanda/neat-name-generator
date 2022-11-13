@@ -1,29 +1,48 @@
-// import React, { Component } from "react";
+import React, { Component } from "react";
 
-// const TableHeader = () => {
+const Tableheader = () => {
+  return (
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Job</th>
+      </tr>
+    </thead>
+  );
+};
 
-//   return (
-//     <thead>
-//       <tr>
-//         <th>Name</th>
-//       </tr>
-//     </thead>
-//   );
-// };
-// const TableBody = () => {
-//   return <tbody />;
-// };
+const Tablebody = () => {
+  return (
+    <tbody>
+      <tr>
+        <td>Charlie</td>
+        <td>Janitor</td>
+      </tr>
+      <tr>
+        <td>Mac</td>
+        <td>Bouncer</td>
+      </tr>
+      <tr>
+        <td>Dee</td>
+        <td>Aspiring actress</td>
+      </tr>
+      <tr>
+        <td>Dennis</td>
+        <td>Bartender</td>
+      </tr>
+    </tbody>
+  );
+};
 
-// class Table extends Component {
-//   render(props) {
-//     const { studentData } = this.props;
-//     const { studentNames } = this.props;
-//     return (
-//       <table>
-//         <TableHeader />
-//         <TableBody studentData={studentNames} />
-//       </table>
-//     );
-//   }
-// }
-// export default Table;
+class Table extends Component {
+  render() {
+    return (
+      <table>
+        <Tableheader />
+        <Tablebody />
+      </table>
+    );
+  }
+}
+
+export default Table;

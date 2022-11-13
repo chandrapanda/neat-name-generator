@@ -10,7 +10,6 @@ import {
   TextField,
   FormControl,
   Button,
-  Chip,
   Modal,
 } from "@mui/material";
 
@@ -46,6 +45,7 @@ const StudentList = () => {
     "Sandra Cuervo",
   ]);
 
+  //TODO: Set Add Student functions / debug
   //Set local storage items as student names
   // useEffect(() => {
   //   const studentNames = JSON.parse(localStorage.getItem("studentNames"));
@@ -120,9 +120,9 @@ const StudentList = () => {
   );
 
   //Initialize random student variable
-  const [randomStudent, setRandomStudent] = useState("CLICK ABOVE TO GENERATE");
+  const [randomStudent, setRandomStudent] = useState("Click the button above");
 
-  // TODO: Create function to map over student names after seeds are ready (?? DO I WANT A BACKEND SERVER??)
+  // TODO: Create function to map over student names after seeds are ready (? DO I EVEN WANT A BACKEND SERVER??)
 
   //TODO: Permutate array .. Make sure each student can only be called on once per iteration
 

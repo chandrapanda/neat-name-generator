@@ -4,7 +4,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
-// import Table from "./components/Table";
+import Table from "./components/Table";
 
 const theme = createTheme({
   typography: {
@@ -36,15 +36,17 @@ function App() {
       <div className="App">
         <Navbar />
         <header className="App-header">
-          <img
+          {/* <img
             src="/images/mylogo.png"
             className="App-logo"
             alt="logo"
             height="20px"
             padding="10px"
-          />
+          /> */}
+          <div class="table-container">
+            <Table />
+          </div>
           <StudentList />
-          <div className="container">{/* <Table /> */}</div>
         </header>
         <Footer />
       </div>
