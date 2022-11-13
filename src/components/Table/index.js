@@ -4,45 +4,34 @@ const Tableheader = () => {
   return (
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Job</th>
+        <th>Student Name</th>
       </tr>
     </thead>
   );
 };
 
-const Tablebody = () => {
-  return (
-    <tbody>
-      <tr>
-        <td>Charlie</td>
-        <td>Janitor</td>
+const Tablebody = (props) => {
+  const rows = props.studentData.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>
+          <button onClick={() => props.removeStudent(index)}>Delete</button>
+        </td>
       </tr>
-      <tr>
-        <td>Mac</td>
-        <td>Bouncer</td>
-      </tr>
-      <tr>
-        <td>Dee</td>
-        <td>Aspiring actress</td>
-      </tr>
-      <tr>
-        <td>Dennis</td>
-        <td>Bartender</td>
-      </tr>
-    </tbody>
-  );
+    );
+  });
+  return <tbody>{rows}</tbody>;
 };
 
-class Table extends Component {
-  render() {
-    return (
-      <table>
-        <Tableheader />
-        <Tablebody />
-      </table>
-    );
-  }
-}
+const Table = (props) => {
+  const { studentData, removeStudent } = props;
+  return (
+    <table>
+      <Tableheader />
+      <Tablebody studentData={studentData} removeStudent={removeStudent} />
+    </table>
+  );
+};
 
 export default Table;
