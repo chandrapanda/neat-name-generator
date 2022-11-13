@@ -1,6 +1,5 @@
 import * as React from "react";
 import { useState, useEffect } from "react";
-import NameForm from "../Forms/index";
 import {
   Box,
   Grid,
@@ -156,13 +155,10 @@ const StudentList = () => {
           <Typography id="modal-modal-title" variant="h1" sx={{ mb: 4 }}>
             Add Season
           </Typography>
-
-          {/* Add Season Form */}
-          <NameForm handleClose={handleClose} />
         </Box>
       </Modal>
       <FormControl>
-        <p>Enter a student's name and click "ADD NAME TO LIST".</p>
+     
         <TextField
           id="student-name-form"
           name="newStudentName"

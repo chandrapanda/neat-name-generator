@@ -4,8 +4,8 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import StudentList from "./components/StudentList";
-import Form from "./components/Form";
-import Table from "./components/Table";
+import Form from "./Form";
+import StudentTable from "./components/StudentTable";
 
 const theme = createTheme({
   typography: {
@@ -61,7 +61,7 @@ class App extends Component {
             padding="10px"
           /> */}
             <div class="table-container">
-              <Table
+              <StudentTable
                 studentData={students}
                 removeStudent={this.removeStudent}
               />
