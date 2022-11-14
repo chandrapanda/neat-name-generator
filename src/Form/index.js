@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import { useState } from "react";
 import { Button, FormControl, TextField } from "@mui/material";
 
 //Styling
@@ -24,6 +25,7 @@ class Form extends Component {
   submitForm = () => {
     this.props.handleSubmit(this.state);
     this.setState(this.initialState);
+    console.log("The add name button is working!");
   };
   render() {
     const { studentName } = this.state;

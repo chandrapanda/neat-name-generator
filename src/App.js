@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import StudentList from "./components/StudentList";
+import RandomStudent from "./components/RandomStudent";
 import Form from "./Form";
 import StudentTable from "./components/StudentTable";
 
@@ -31,6 +31,23 @@ const theme = createTheme({
   },
 });
 
+//TODO: set up local storage for array of studentName objects
+// const useLocalStorage = (studentList, students) => {
+//   const [storedNames, setStoredNames] = React.useState(() => {
+//     try {
+//       const students = window.localStorage.getItem(studentList);
+//       if (value) {
+//         return JSON.parse(value);
+//       } else {
+//         window.localStorage.setItem(studentList, JSON.stringify(""));
+//         return "";
+//       }
+//     } catch (err) {
+//       console.log(err);
+//     }
+//   });
+// };
+
 class App extends Component {
   state = {
     students: [],
@@ -53,13 +70,14 @@ class App extends Component {
         <div className="App">
           <Navbar />
           <header className="App-header">
-            {/* <img
-            src="/images/mylogo.png"
-            className="App-logo"
-            alt="logo"
-            height="20px"
-            padding="10px"
-          /> */}
+            <img
+              src="/images/mylogo.png"
+              className="App-logo"
+              alt="logo"
+              height="20px"
+              padding="10px"
+            />
+
             <div class="table-container">
               <StudentTable
                 studentData={students}
@@ -67,8 +85,7 @@ class App extends Component {
               />
               <Form handleSubmit={this.handleSubmit} />
             </div>
-
-            {/* <StudentList /> */}
+            <RandomStudent />
           </header>
           <Footer />
         </div>

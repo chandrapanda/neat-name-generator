@@ -1,14 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import {
-  Box,
-  Grid,
-  Typography,
-  List,
-  ListItem,
-  TextField,
-  FormControl,
   Button,
-  Modal,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
 } from "@mui/material";
 
 //Styling
@@ -22,36 +21,38 @@ const fieldStyle = {
 
 const Tableheader = () => {
   return (
-    <thead>
-      <tr>
-        <th>Student Name</th>
-      </tr>
-    </thead>
+    <TableHead>
+      <TableBody>
+        <TableRow>Student Name</TableRow>
+      </TableBody>
+    </TableHead>
   );
 };
 
 const Tablebody = (props) => {
   const rows = props.studentData.map((row, index) => {
     return (
-      <tr key={index}>
-        <td>{row.name}</td>
-        <td>
-          <button onClick={() => props.removeStudent(index)}>Delete</button>
-        </td>
-      </tr>
+      <TableRow key={index}>
+        <TableCell>{row.name}</TableCell>
+        <TableCell>
+          <Button onClick={() => props.removeStudent(index)}>Delete</Button>
+        </TableCell>
+      </TableRow>
     );
   });
   return <tbody>{rows}</tbody>;
 };
 
-const Table = (props) => {
+const StudentTable = (props) => {
   const { studentData, removeStudent } = props;
   return (
-    <table>
-      <Tableheader />
-      <Tablebody studentData={studentData} removeStudent={removeStudent} />
-    </table>
+    <TableContainer sx={fieldStyle} component={Paper}>
+      <Table>
+        <Tableheader />
+        <Tablebody studentData={studentData} removeStudent={removeStudent} />
+      </Table>
+    </TableContainer>
   );
 };
 
-export default Table;
+export default StudentTable;
