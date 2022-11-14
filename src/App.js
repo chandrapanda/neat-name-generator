@@ -1,10 +1,12 @@
 import "./App.css";
 import React, { Component } from "react";
+import uuid from "react-uuid";
+// TODO: refactor to import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import RandomStudent from "./components/student/RandomStudent";
-import Form from "./Form";
+import Form from "./components/student/NewStudentForm";
 import StudentTable from "./components/student/StudentTable";
 
 const theme = createTheme({
@@ -50,7 +52,17 @@ const theme = createTheme({
 
 class App extends Component {
   state = {
-    students: [{ name: "Mary" }, { name: "Bob" }],
+    students: [
+      { id: 1, name: "Mary" },
+      { id: 2, name: "Cian" },
+      { id: 3, name: "Li" },
+      { id: 4, name: "Mohammed" },
+      { name: "Jose" },
+      { name: "Cara" },
+      { name: "Blorp" },
+    ],
+    selectedStudents: [],
+    unselectedStudents: [],
   };
   removeStudent = (index) => {
     const { students } = this.state;

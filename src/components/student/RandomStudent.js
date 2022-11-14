@@ -1,5 +1,11 @@
 import React from "react";
-import { TextField, Button, FormControl } from "@mui/material";
+import {
+  TextField,
+  Button,
+  FormControl,
+  Table,
+  TableCell,
+} from "@mui/material";
 import { useState } from "react";
 
 //Styling
@@ -15,7 +21,7 @@ const RandomStudent = (props) => {
   const { studentData } = props;
   console.log(props);
   //Initialize random student variable
-  const [randomStudent, setRandomStudent] = useState("Click the button above");
+  const [randomStudent, setRandomStudent] = useState();
 
   //Generates a random name from given array
   const generateRandomName = () => {
@@ -29,10 +35,12 @@ const RandomStudent = (props) => {
     console.log("The generate random button is working!");
   };
 
-  console.log(randomStudent);
-
   return (
     <FormControl>
+      <Table>
+        <TableCell>Selected Students</TableCell>
+        <TableCell>Unselected Students</TableCell>
+      </Table>
       <p>To select a random name, click "GENERATE A RANDOM NAME".</p>
       <Button
         id="generate-button"
@@ -50,7 +58,11 @@ const RandomStudent = (props) => {
         name="randomName"
         variant="outlined"
         color="primary"
-        value={randomStudent.name}
+        value={
+          randomStudent === undefined
+            ? "Click the button above"
+            : randomStudent.name
+        }
         sx={fieldStyle}
         InputLabelProps={{ shrink: true }}
       ></TextField>

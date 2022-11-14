@@ -23,7 +23,9 @@ const Tableheader = () => {
   return (
     <TableHead>
       <TableBody>
-        <TableRow>Student Name</TableRow>
+        <TableRow>
+          <TableCell>Student Names</TableCell>
+        </TableRow>
       </TableBody>
     </TableHead>
   );
