@@ -3,9 +3,9 @@ import React, { Component } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
-import RandomStudent from "./components/RandomStudent";
+import RandomStudent from "./components/student/RandomStudent";
 import Form from "./Form";
-import StudentTable from "./components/StudentTable";
+import StudentTable from "./components/student/StudentTable";
 
 const theme = createTheme({
   typography: {
@@ -50,7 +50,7 @@ const theme = createTheme({
 
 class App extends Component {
   state = {
-    students: [],
+    students: [{ name: "Mary" }, { name: "Bob" }],
   };
   removeStudent = (index) => {
     const { students } = this.state;
@@ -85,7 +85,7 @@ class App extends Component {
               />
               <Form handleSubmit={this.handleSubmit} />
             </div>
-            <RandomStudent />
+            <RandomStudent studentData={students} />
           </header>
           <Footer />
         </div>

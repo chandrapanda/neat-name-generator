@@ -12,13 +12,15 @@ const fieldStyle = {
 };
 
 const RandomStudent = (props) => {
+  const { studentData } = props;
+  console.log(props);
   //Initialize random student variable
   const [randomStudent, setRandomStudent] = useState("Click the button above");
 
   //Generates a random name from given array
   const generateRandomName = () => {
     setRandomStudent(
-      studentNames[Math.floor(Math.random() * studentNames.length)]
+      studentData[Math.floor(Math.random() * studentData.length)]
     );
   };
   //Calls above function onClick
@@ -27,12 +29,8 @@ const RandomStudent = (props) => {
     console.log("The generate random button is working!");
   };
 
-  console.log(
-    "Here is the random student name variable outside all functions: " +
-      randomStudent
-  );
+  console.log(randomStudent);
 
-  const { studentNames } = props;
   return (
     <FormControl>
       <p>To select a random name, click "GENERATE A RANDOM NAME".</p>
@@ -52,7 +50,7 @@ const RandomStudent = (props) => {
         name="randomName"
         variant="outlined"
         color="primary"
-        value={randomStudent}
+        value={randomStudent.name}
         sx={fieldStyle}
         InputLabelProps={{ shrink: true }}
       ></TextField>
