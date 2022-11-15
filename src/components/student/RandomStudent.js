@@ -3,7 +3,7 @@ import { TextField, Button, FormControl } from "@mui/material";
 import { useState } from "react";
 
 //Styling
-const fieldStyle = {
+const pageStyle = {
   backgroundColor: "white",
   width: "500px",
   alignSelf: "center",
@@ -28,7 +28,6 @@ const RandomStudent = (props) => {
   //Calls above function onClick
   const handleGenerate = () => {
     generateRandomName();
-    console.log("The generate random button is working!");
   };
 
   return (
@@ -52,10 +51,10 @@ const RandomStudent = (props) => {
         color="primary"
         value={
           randomStudent === undefined
-            ? "Click the button above"
+            ? "Click the button above to call on a student at random"
             : randomStudent.name
         }
-        sx={fieldStyle}
+        sx={pageStyle}
         InputLabelProps={{ shrink: true }}
       ></TextField>
     </FormControl>

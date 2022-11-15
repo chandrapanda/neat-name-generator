@@ -1,17 +1,17 @@
 import React from "react";
 import {
   Button,
+  Grid,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
   TableRow,
-  Paper,
 } from "@mui/material";
 
 //Styling
-const fieldStyle = {
+const tableStyle = {
   backgroundColor: "white",
   width: "500px",
   alignSelf: "center",
@@ -25,7 +25,9 @@ const Tableheader = () => {
     <TableHead>
       <TableBody>
         <TableRow>
-          <TableCell>Student Names</TableCell>
+          <TableCell sx={{ fontSize: 34, fontStyle: "underline" }}>
+            Student Names
+          </TableCell>
         </TableRow>
       </TableBody>
     </TableHead>
@@ -36,7 +38,7 @@ const Tablebody = (props) => {
   const rows = props.studentData.map((student, index) => {
     return (
       <TableRow key={index}>
-        <TableCell>{student.name}</TableCell>
+        <TableCell sx={{ fontSize: 18 }}>{student.name}</TableCell>
         <TableCell>
           <Button onClick={() => props.removeStudent(index)}>Delete</Button>
         </TableCell>
@@ -49,9 +51,10 @@ const Tablebody = (props) => {
 const StudentTable = (props) => {
   const { studentData, removeStudent } = props;
   return (
-    <TableContainer sx={fieldStyle} component={Paper}>
+    <TableContainer sx={tableStyle}>
       <Table>
         <Tableheader />
+
         <Tablebody studentData={studentData} removeStudent={removeStudent} />
       </Table>
     </TableContainer>

@@ -35,14 +35,14 @@ const theme = createTheme({
 });
 
 //TODO: set up local storage for array of studentName objects
-// const useLocalStorage = (studentList, students) => {
-//   const [storedNames, setStoredNames] = React.useState(() => {
+// const useLocalStorage = () => {
+//   const [studentData, setStudentData] = React.useState(localStorage.getItem('students') === 'true' => {
 //     try {
-//       const students = window.localStorage.getItem(studentList);
+//       const students = window.localStorage.getItem(studentData);
 //       if (value) {
 //         return JSON.parse(value);
 //       } else {
-//         window.localStorage.setItem(studentList, JSON.stringify(""));
+//         window.localStorage.setItem(studentData, JSON.stringify(""));
 //         return "";
 //       }
 //     } catch (err) {
@@ -117,7 +117,6 @@ class App extends Component {
 
   //reset all students to unselected
   resetAllToUnselected = () => {
-    console.log("reset all button clicked");
     const { students } = this.state;
     const deSelectedStudents = students.map((currentStudent) => {
       currentStudent.selected = false;
@@ -157,11 +156,12 @@ class App extends Component {
               height="20px"
               padding="10px"
             />
+            <Form handleSubmit={this.handleSubmit} />
             <StudentTable
               studentData={students}
               removeStudent={this.removeStudent}
             />
-            <Form handleSubmit={this.handleSubmit} />
+
             <RandomStudent
               selectStudent={this.selectStudent}
               studentData={students}

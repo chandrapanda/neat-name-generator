@@ -3,43 +3,43 @@ import {
   Button,
   Box,
   Container,
+  Grid,
   List,
   ListItem,
   ListItemText,
-  Grid,
   Typography,
 } from "@mui/material";
 
 //Styling
-const fieldStyle = {
-  backgroundColor: "white",
+const listStyle = {
+  backgroundColor: "#ffffff",
   color: "black",
-  width: "500px",
-  alignSelf: "center",
+  width: "400px",
+  justifyContent: "center",
+  textAlign: "center",
   mt: 4,
   mb: 2,
+  flexDirection: "inherit",
 };
 
 //show a list of students that have already been selected in the past
 const PreviouslySelected = (props) => {
   const { studentData, resetAllToUnselected } = props;
   return (
-    <Container sx={fieldStyle}>
+    <Container sx={{ width: "auto" }}>
       <Button
         id="reset-button"
         size="large"
         variant="contained"
         type="submit"
-        sx={{ width: "fit-content", alignSelf: "center" }}
         onClick={() => resetAllToUnselected()}
       >
         Reset all students
       </Button>
-      <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
-        <Grid container spacing={2}></Grid>
+      <Grid container sx={listStyle}>
         <Grid item xs={12} md={6}>
-          <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
-            Selected Students KEY:
+          <Typography alignSelf="center" variant="h2" component="div">
+            Selected Students Key
           </Typography>
           <List>
             {studentData.map((student, index) => {
@@ -54,7 +54,7 @@ const PreviouslySelected = (props) => {
             })}
           </List>
         </Grid>
-      </Box>
+      </Grid>
     </Container>
   );
 };
