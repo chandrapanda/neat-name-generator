@@ -5,7 +5,6 @@ import {
   Container,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Grid,
   Typography,

@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
-// TODO: refactor to import { useState } from "react";
+//TODO: refactor to import { useState } from "react";
+//TODO: add webpack to minify application
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
