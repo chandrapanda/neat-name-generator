@@ -19,6 +19,7 @@ const fieldStyle = {
   mb: 2,
 };
 
+//Create display table for students
 const Tableheader = () => {
   return (
     <TableHead>
@@ -32,17 +33,17 @@ const Tableheader = () => {
 };
 
 const Tablebody = (props) => {
-  const rows = props.studentData.map((row, index) => {
+  const rows = props.studentData.map((student, index) => {
     return (
       <TableRow key={index}>
-        <TableCell>{row.name}</TableCell>
+        <TableCell>{student.name}</TableCell>
         <TableCell>
           <Button onClick={() => props.removeStudent(index)}>Delete</Button>
         </TableCell>
       </TableRow>
     );
   });
-  return <tbody>{rows}</tbody>;
+  return <TableBody>{rows}</TableBody>;
 };
 
 const StudentTable = (props) => {

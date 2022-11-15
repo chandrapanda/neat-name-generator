@@ -1,6 +1,5 @@
 import "./App.css";
 import React, { Component } from "react";
-import uuid from "react-uuid";
 // TODO: refactor to import { useState } from "react";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import Footer from "./components/Footer";
@@ -8,6 +7,7 @@ import Navbar from "./components/Navbar";
 import RandomStudent from "./components/student/RandomStudent";
 import Form from "./components/student/NewStudentForm";
 import StudentTable from "./components/student/StudentTable";
+import PreviouslySelected from "./components/student/PreviouslySelected";
 
 const theme = createTheme({
   typography: {
@@ -53,17 +53,78 @@ const theme = createTheme({
 class App extends Component {
   state = {
     students: [
-      { id: 1, name: "Mary" },
-      { id: 2, name: "Cian" },
-      { id: 3, name: "Li" },
-      { id: 4, name: "Mohammed" },
-      { name: "Jose" },
-      { name: "Cara" },
-      { name: "Blorp" },
+      {
+        id: "r851d99f-988d-e6a6-1a72-d51fed5922d4",
+        name: "Mary",
+        selected: false,
+      },
+      {
+        id: "s851d99f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Cian",
+        selected: true,
+      },
+      {
+        id: "e851d98f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Li",
+        selected: false,
+      },
+      {
+        id: "a851d99f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Mohammed",
+        selected: false,
+      },
+      {
+        id: "b851d99f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Jose",
+        selected: false,
+      },
+      {
+        id: "c851d99f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Cara",
+        selected: true,
+      },
+      {
+        id: "o851d99f-988d-e6b6-1a72-d51fed5922d4",
+        name: "Blorp",
+        selected: true,
+      },
     ],
-    selectedStudents: [],
-    unselectedStudents: [],
   };
+
+  //select student for random generator
+  selectStudent = (student) => {
+    const { students } = this.state;
+    const selectedStudentId = student.id;
+    this.setState({
+      student: students.map((currentStudent) => {
+        if (currentStudent.id === selectedStudentId) {
+          currentStudent.selected = true;
+        }
+        return currentStudent;
+      }),
+    });
+    const unselectedStudents = students.filter(
+      (currentStudent) => !currentStudent.selected
+    );
+    if (!unselectedStudents) {
+      students.map((currentStudent) => {
+        currentStudent.selected = false;
+        return currentStudent;
+      });
+    }
+  };
+
+  //reset all students to unselected
+  resetAllToUnselected = () => {
+    const { students } = this.state;
+    const deSelectedStudents = students.map((currentStudent) => {
+      currentStudent.selected = false;
+      return currentStudent;
+    });
+    this.setState({ students: deSelectedStudents });
+  };
+
+  //remove a student from array
   removeStudent = (index) => {
     const { students } = this.state;
     this.setState({
@@ -72,9 +133,13 @@ class App extends Component {
       }),
     });
   };
+
+  //set new student data and push to array
   handleSubmit = (student) => {
     this.setState({ students: [...this.state.students, student] });
   };
+
+  //render app
   render() {
     const { students } = this.state;
     return (
@@ -89,15 +154,19 @@ class App extends Component {
               height="20px"
               padding="10px"
             />
-
-            <div class="table-container">
-              <StudentTable
-                studentData={students}
-                removeStudent={this.removeStudent}
-              />
-              <Form handleSubmit={this.handleSubmit} />
-            </div>
-            <RandomStudent studentData={students} />
+            <StudentTable
+              studentData={students}
+              removeStudent={this.removeStudent}
+            />
+            <Form handleSubmit={this.handleSubmit} />
+            <RandomStudent
+              selectStudent={this.selectStudent}
+              studentData={students}
+            />
+            <PreviouslySelected
+              studentData={students}
+              resetAllToUnselected={this.resetAllToUnselected}
+            />
           </header>
           <Footer />
         </div>

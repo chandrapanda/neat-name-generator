@@ -24,6 +24,9 @@ class Form extends Component {
     this.setState({
       [name]: value,
     });
+    this.setState({
+      selected: false,
+    });
   };
   submitForm = () => {
     this.props.handleSubmit(this.state);
