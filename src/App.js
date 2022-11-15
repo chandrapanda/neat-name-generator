@@ -116,12 +116,14 @@ class App extends Component {
 
   //reset all students to unselected
   resetAllToUnselected = () => {
+    console.log("reset all button clicked");
     const { students } = this.state;
     const deSelectedStudents = students.map((currentStudent) => {
       currentStudent.selected = false;
       return currentStudent;
     });
     this.setState({ students: deSelectedStudents });
+    console.log(students);
   };
 
   //remove a student from array

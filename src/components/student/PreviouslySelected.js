@@ -1,18 +1,20 @@
 import React from "react";
 import {
   Button,
-  Table,
-  TableBody,
-  TableContainer,
-  TableHead,
-  TableRow,
-  TableCell,
-  Paper,
+  Box,
+  Container,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Grid,
+  Typography,
 } from "@mui/material";
 
 //Styling
 const fieldStyle = {
   backgroundColor: "white",
+  color: "black",
   width: "500px",
   alignSelf: "center",
   mt: 4,
@@ -20,41 +22,41 @@ const fieldStyle = {
 };
 
 //show a list of students that have already been selected in the past
-const Tableheader = () => {
-  return (
-    <TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell>Selected Students</TableCell>
-          <TableCell>Unselected Students</TableCell>
-        </TableRow>
-      </TableBody>
-    </TableHead>
-  );
-};
-
-const Tablebody = (props) => {
-  const rows = props.studentData.map((student, index) => {
-    return (
-      <TableRow key={index}>
-        <TableCell>{student.name}</TableCell>
-        <TableCell>
-          <Button onClick={() => props.resetAllToUnselected()}>RESET ALL</Button>
-        </TableCell>
-      </TableRow>
-    );
-  });
-  return <TableBody>{rows}</TableBody>;
-};
 const PreviouslySelected = (props) => {
-  const { studentData, selectStudent } = props;
+  const { studentData, resetAllToUnselected } = props;
   return (
-    <TableContainer sx={fieldStyle} component={Paper}>
-      <Table>
-        <Tableheader />
-        <Tablebody studentData={studentData} selectStudent={selectStudent} />
-      </Table>
-    </TableContainer>
+    <Container sx={fieldStyle}>
+      <Button
+        id="reset-button"
+        size="large"
+        variant="contained"
+        type="submit"
+        sx={{ width: "fit-content", alignSelf: "center" }}
+        onClick={() => resetAllToUnselected()}
+      >
+        Reset all students
+      </Button>
+      <Box sx={{ flexGrow: 1, maxWidth: 752 }}>
+        <Grid container spacing={2}></Grid>
+        <Grid item xs={12} md={6}>
+          <Typography sx={{ mt: 4, mb: 2 }} variant="h6" component="div">
+            Selected Students KEY:
+          </Typography>
+          <List>
+            {studentData.map((student, index) => {
+              return (
+                <ListItem key={index}>
+                  <ListItemText
+                    primary={student.name}
+                    secondary={student.selected ? "Selected" : null}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
+        </Grid>
+      </Box>
+    </Container>
   );
 };
 
