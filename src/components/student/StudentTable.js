@@ -6,7 +6,6 @@ import {
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
 } from "@mui/material";
 
@@ -22,15 +21,13 @@ const tableStyle = {
 //Create display table for students
 const Tableheader = () => {
   return (
-    <TableHead>
-      <TableBody>
-        <TableRow>
-          <TableCell sx={{ fontSize: 34, fontStyle: "underline" }}>
-            Student Names
-          </TableCell>
-        </TableRow>
-      </TableBody>
-    </TableHead>
+    <TableBody>
+      <TableRow>
+        <TableCell sx={{ fontSize: 34, fontStyle: "underline" }}>
+          Student Names
+        </TableCell>
+      </TableRow>
+    </TableBody>
   );
 };
 

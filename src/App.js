@@ -150,7 +150,7 @@ class App extends Component {
           <Navbar />
           <header className="App-header">
             <img
-              src="images/mylogo.png"
+              src="neat-name-generator/mylogo.png"
               className="App-logo"
               alt="logo"
               height="20px"
