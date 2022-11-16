@@ -9,6 +9,7 @@ import RandomStudent from "./components/student/RandomStudent";
 import Form from "./components/student/NewStudentForm";
 import StudentTable from "./components/student/StudentTable";
 import PreviouslySelected from "./components/student/PreviouslySelected";
+import myLogo from "./images/mylogo.png";
 
 const theme = createTheme({
   typography: {
@@ -150,7 +151,7 @@ class App extends Component {
           <Navbar />
           <header className="App-header">
             <img
-              src="neat-name-generator/mylogo.png"
+              src={myLogo}
               className="App-logo"
               alt="logo"
               height="20px"
