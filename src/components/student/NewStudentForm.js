@@ -16,6 +16,7 @@ class Form extends Component {
   initialState = {
     id: "",
     name: "",
+    selected: "",
   };
   state = this.initialState;
   handleChange = (event) => {
@@ -31,10 +32,10 @@ class Form extends Component {
   submitForm = () => {
     this.props.handleSubmit(this.state);
     this.setState(this.initialState);
-    console.log(this.state);
+    console.log(this.initialState);
   };
   render() {
-    const { studentName } = this.state;
+    const { name } = this.state;
 
     return (
       <FormControl>
@@ -45,7 +46,7 @@ class Form extends Component {
           variant="outlined"
           label="Write a name"
           color="primary"
-          value={studentName}
+          value={name}
           onChange={this.handleChange}
           sx={fieldStyle}
         ></TextField>
