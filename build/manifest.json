@@ -3,17 +3,17 @@
   "name": "Neat-o Name Generator",
   "icons": [
     {
-      "src": "mylogo.png",
+      "src": "images/mylogo.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "mylogo.png",
+      "src": "images/mylogo.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "mylogo.png",
+      "src": "images/mylogo.png",
       "type": "image/png",
       "sizes": "512x512"
     }
